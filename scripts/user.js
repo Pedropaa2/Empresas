@@ -1,4 +1,4 @@
-import {alreadyRegistered, notLogged,getUserRegistered,alreadyLogged, atualiza} from "./requests.js"
+import {alreadyRegistered, notLogged,getUserRegistered,alreadyLogged, atualiza, checkColleagues,checkLoggedDepartmentInfo,logout} from "./requests.js"
 function openModal (){
     const openDialog = document.querySelector(".lapis")
     const dialog = document.querySelector("dialog")
@@ -49,6 +49,60 @@ function renderInformations(){
 
 
 }
+async function renderColleagues(){
+    const arrayColleagues = await checkColleagues()
+    const empresaFuncionario = await checkLoggedDepartmentInfo()
+    const ul = document.querySelector("ul")
+    const section = document.querySelector(".colegas")
+    console.log(arrayColleagues)
+   
+    if(arrayColleagues.length == 0){
+        ul.innerHTML=""
+        
+        const h2= document.createElement("h2")
+        h2.classList.add("notFound")
+        h2.innerText="Você ainda não foi contratado"
+        ul.appendChild(h2)
+
+        section.id = "section_Vazia"
+    }else if (arrayColleagues.length > 0){
+           
+        ul.innerHTML=""
+        const div = document.querySelector(".name_Hide")
+        div.className = "name_Show"
+        arrayColleagues.forEach(element => {
+            console.log(element)
+            const nameAndDepartment = document.querySelector(".nameAndDepartment")
+            nameAndDepartment.innerText=`${empresaFuncionario.name} - ${element.name} ` 
+            
+            element.users.forEach(element => {
+                const emailUser = document.querySelector(".email")
+                if (element.email != emailUser.innerText ){
+                    
+                    const li = document.createElement("li")
+                    ul.appendChild(li)
+
+                    const name = document.createElement("p")
+                    name.innerText = `${element.username[0].toUpperCase() + element.username.slice(1)}`
+                    name.classList.add("name")
+
+                    const level = document.createElement("p")
+                    level.innerText = `${element.professional_level}`
+
+                    ul.classList.remove("vazio_Container")
+                    ul.classList.add("colegas_Depart")
+                    li.appendChild(name)
+                    li.appendChild(level)
+                }
+                
+            });
+            
+
+        });
+
+    }
+}
+
 await alreadyLogged()
 notLogged()
 alreadyRegistered()
@@ -56,4 +110,8 @@ openModal()
 closeModal()
 atualizarPerfil()
 renderInformations()
+renderColleagues()
+logout()
+
+
 

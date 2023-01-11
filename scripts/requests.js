@@ -254,7 +254,41 @@ async function atualiza(loginUser){
       
       return response
 }
+async function checkColleagues(){
+  const localStorageValue = getUser()  
+  const request = await fetch(`http://localhost:6278/users/departments/coworkers`, {
+          method: "GET",
+          headers: {
+              'Content-Type': 'application/json',
+              Authorization: `Bearer ${localStorageValue.token}`
+          }
+      })
+      const response = await request.json()
+      
+      return response
+}
+async function checkLoggedDepartmentInfo(){
+  const localStorageValue = getUser()  
+  const request = await fetch(`http://localhost:6278/users/departments`, {
+          method: "GET",
+          headers: {
+              'Content-Type': 'application/json',
+              Authorization: `Bearer ${localStorageValue.token}`
+          }
+      })
+      const response = await request.json()
+      
+      return response
+}
+function logout(){
+  const button = document.querySelector(".logout")
 
+  button.addEventListener("click",()=>{
+      window.localStorage.clear()
+      location.replace("./index.html")
+
+  })
+}
 
 export {
   login,
@@ -270,7 +304,10 @@ export {
   getEmpresasPorSetor,
   getTodasEmpresas,
   getUserRegistered,
-  atualiza
+  atualiza,
+  checkColleagues,
+  checkLoggedDepartmentInfo,
+  logout
 } 
 
 

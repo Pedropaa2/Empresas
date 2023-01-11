@@ -99,12 +99,18 @@ input{
    margin-left: 30px;
    color: white;
 }
-ul{
+#section_Vazia{
     display: flex;
-    flex-wrap: wrap;
-    margin-top: 136px ;
-    
-    
+    justify-content: center;
+    align-items: center;
+}
+.notFound{
+    margin: 0;
+}
+.vazio_Container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 li{
     background-color: white;
@@ -122,4 +128,22 @@ li > p {
 }
 .name{
     margin-top: 12px ;
+}
+.colegas_Depart{
+    display: flex;
+    flex-wrap: wrap;
+
+}
+.name_Hide{
+    display: none;
+}
+.name_Show{
+    height:78px ;
+    background-color: #4200FF;
+    margin-bottom: 58px;
+    display: flex;
+    justify-content: center;
+}
+.nameAndDepartment{
+    color: white;
 }
