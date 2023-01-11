@@ -1,0 +1,161 @@
+body{
+    height: 100vh;
+    width: 100vw;
+}
+.h1_Container{
+    display: flex;
+    justify-content: center;
+}
+h1{
+    font-size: 32px;
+    width: 80%;
+    margin-top: 40px;
+}
+header{
+    border-bottom:rgba(0, 0, 0, 0.2) solid ;
+    margin-top: 25px;
+}
+.h1AndCircle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.circle{
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(66, 0, 255, 0.5) ;
+}
+.visible{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+nav{
+    display: flex;
+    justify-content: center;
+    gap: 10px  ;
+    margin-bottom: 21px;
+   
+}
+.home{
+    width: 40%;
+    height: 48px;
+    background-color: white;
+    border: #4200FF solid 1px;
+    color: #4200FF;
+    font-size: 18px;
+    line-height: 21px;
+
+
+}
+.login{
+    width: 40%;
+    height: 48px;
+    background-color: #4200FF;
+    border: #4200FF solid 1px;
+    color: white;
+    font-size: 18px;
+    line-height: 21px;
+}
+.register_Btn{
+    background-color: #4200FF;
+    color: white;
+    border: #4200FF;
+}
+.return_Button{
+    background-color: white;
+    color: #4200FF;
+    border: #4200FF solid 1px;
+}
+.fechado{
+    display: none;
+}
+.aberto{
+    display: flex;
+}
+section{
+   background-color: rgba(255, 255, 255, 0.95); 
+   margin-top: 28px;
+   width: 100%;
+   height: fit-content;
+   padding-bottom: 40px;
+}
+.login_Container{
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+    margin-top:26px ;
+    align-items: center;
+    
+}
+.buttons_Container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:13px ;
+    margin-top: 13px;
+    
+    
+}
+.login_Container > input{
+    height: 52px;
+    width: 80%;
+    border: rgba(0, 0, 0, 0.2) 1px solid;
+    
+}
+.login_Container > select{
+    height: 52px;
+    width: 80%;
+    
+}
+.buttons_Container>button{
+    height: 52px;
+    width: 80%;
+    
+}
+main{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    background-image: url("../pages/assets/Rectangle\ 6.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+   
+}
+@media(min-width:991px) {
+   main{
+    display: flex;
+    gap: 60px;
+    justify-content: center;
+   }
+   section{
+    width: 40%;
+    margin-top: 100px;
+   }
+   .setor{
+    width: 100%;
+    margin-top: 0;
+   }
+   .abre{
+    display: none;
+   }
+   .fechado{
+    display: flex;
+   }
+   header{
+    display: flex;
+    justify-content: space-between;
+   }
+   .home{
+    width: 142px;
+   }
+   .login{
+    width: 142px;
+    margin-right: 20px;
+   }
+   
+}

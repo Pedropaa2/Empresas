@@ -1,0 +1,107 @@
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.h1AndCircle{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+header{
+    display: flex;
+    justify-content: center;
+    height: 80px; 
+    align-items: center;
+    border-bottom:rgba(0, 0, 0, 0.1) solid 1px ;
+}
+.header_Container{
+    display: flex;
+    width: 80%;
+    justify-content: space-between;
+}
+.circle{
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(66, 0, 255, 0.5) ;
+}
+.logout{
+    height: 48px;
+    width: 142px;
+    background-color: white;
+    color: #4200FF;
+    border: #4200FF solid 1px;
+}
+.departamento_Container{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 104px ;
+}
+.select_Container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.criar{
+    height: 48px;
+    width: 150px;
+    background-color: #4200FF;
+    color: white;
+    border: none;
+}
+select{
+    width: 282px; 
+    height: 32px;
+    border-radius: 15px;
+
+}
+h2{
+    font-size: 30px;
+
+}
+.ul_Container{
+    height: 385px;
+    width: 100%;
+    background-color:#F8F8F8 ;
+    overflow-y: auto;
+    
+}
+ul{
+    display: flex;
+    flex-wrap: wrap;
+}
+li{
+    height: 196px;
+    width: 489px;
+    background-color: white;
+    margin-top: 34px;
+    margin-left: 56px;
+    display: flex;
+    flex-direction: column;
+    gap:10px ;
+    border-bottom: #4200FF solid 1px;
+}
+li > p {
+    margin-left: 29px;
+}
+.nomeDepartamento{
+    margin-top: 18px;
+    font-size: 20px;
+}
+.edit{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    gap: 20px;
+}
+.user_Container{
+    margin-top: 69px;
+    width: 80%;
+}
+.h2_Container{
+    display: flex;
+    justify-content: center;
+}

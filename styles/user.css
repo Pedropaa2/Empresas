@@ -1,0 +1,125 @@
+.h1AndCircle{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+h2{
+    font-size: 30px;
+    line-height: 36px;
+    margin-left: 30px;
+    margin-top: 20px;
+}
+header{
+    display: flex;
+    justify-content: center;
+    height: 80px; 
+    align-items: center;
+    border-bottom:rgba(0, 0, 0, 0.1) solid 1px ;
+}
+.header_Container{
+    display: flex;
+    width: 80%;
+    justify-content: space-between;
+}
+.circle{
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(66, 0, 255, 0.5) ;
+}
+.logout{
+    height: 48px;
+    width: 142px;
+    background-color: white;
+    color: #4200FF;
+    border: #4200FF solid 1px;
+}
+
+.profile{
+    height: 121px;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border:rgba(0, 0, 0, 0.2) solid 1px ;
+    margin-top: 24px ;
+
+}
+.info{
+    display: flex;
+    gap: 150px;
+    margin-left: 30px ;
+    margin-top: 11px;
+}
+.lapis{
+    position: absolute;
+    right: 46px;
+    top: 46px;
+    bottom: 46px;
+}
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.colegas{
+    margin-top: 44px ;
+    width: 80%;
+    height: 467px;
+    background-color:#F8F8F8;
+    border: #A8A8A8 solid 1px ;
+    overflow-y: auto;
+}
+dialog{
+    width: 506px;
+    height: 421px;
+    position: relative;
+    border: none;
+}
+.dialog_Container{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+input{
+   height: 52px; 
+   width: 422px;
+   border: rgba(0, 0, 0, 0.3) solid 1px;
+   margin-left: 30px;
+
+}
+.closeModal{
+    position: absolute;
+    right: 10px;
+}
+.edit{
+    height: 52px; 
+   width: 422px;
+   background-color: #4200FF;
+   margin-left: 30px;
+   color: white;
+}
+ul{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 136px ;
+    
+    
+}
+li{
+    background-color: white;
+    height: 76px ;
+    width: 318px;
+    border: #4200FF solid 1px;
+    margin-left: 54px;
+    margin-bottom: 13px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+li > p {
+    margin-left: 23px;
+}
+.name{
+    margin-top: 12px ;
+}
