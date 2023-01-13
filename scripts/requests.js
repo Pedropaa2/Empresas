@@ -185,10 +185,6 @@ async function getEmpresasPorSetor(setor){
           }
       })
       const response = await request.json()
-      response.forEach(element => {
-        
-        renderEmpresa(element)
-      });
       return response
 }
 
@@ -201,38 +197,10 @@ async function getTodasEmpresas(){
           }
       })
       const response = await request.json()
-      response.forEach(element => {
-        renderEmpresa(element)
-      });
+      return response
 }
 
-function renderEmpresa (element){
-  const ul = document.querySelector("ul")
 
-  
-
-  const li = document.createElement("li")
-
-  ul.appendChild(li)
-
-  const h3 = document.createElement("h3")
-  h3.innerText = `${element.name}`
-  li.appendChild(h3)
-
-  const div = document.createElement("div")
-  div.classList.add("container")
-  li.appendChild(div)
-
-  const pCarga = document.createElement("p")
-  pCarga.innerText=`${element.opening_hours}`
-  pCarga.classList.add("carga")
-  div.appendChild(pCarga)
-
-  const pTag = document.createElement("p")
-  pTag.classList.add("tag")
-  pTag.innerText=`${element.sectors.description}`
-  div.appendChild(pTag)
-}
 async function atualiza(loginUser){
   const localStorageValue = getUser()  || []
   const request = await fetch(`http://localhost:6278/users
@@ -280,6 +248,7 @@ async function checkLoggedDepartmentInfo(){
       
       return response
 }
+
 function logout(){
   const button = document.querySelector(".logout")
 
@@ -289,7 +258,88 @@ function logout(){
 
   })
 }
+async function checkDepartamentoEmpresa(id){
+  const localStorageValue = getUser()  
+  const request = await fetch(`http://localhost:6278/departments/${id}`, {
+          method: "GET",
+          headers: {
+              'Content-Type': 'application/json',
+              Authorization: `Bearer ${localStorageValue.token}`
+          }
+      })
+      const response = await request.json()
+      
+      return response
+}
+async function getAllDepartments(){
+  const localStorageValue = getUser()  
+  const request = await fetch(`http://localhost:6278/departments`, {
+          method: "GET",
+          headers: {
+              'Content-Type': 'application/json',
+              Authorization: `Bearer ${localStorageValue.token}`
+          }
+      })
+      const response = await request.json()
+      
+      return response
+}
+async function getAllUsers(){
+  const localStorageValue = getUser()  
+  const request = await fetch(`http://localhost:6278/users`, {
+          method: "GET",
+          headers: {
+              'Content-Type': 'application/json',
+              Authorization: `Bearer ${localStorageValue.token}`
+          }
+      })
+      const response = await request.json()
+      
+      return response
+}
+async function createDepartmentApi(data){
+  const localStorageValue = getUser()
+  const response = await fetch(`http://localhost:6278/departments`,{
+    method:`Post`,
+    headers:{
+      "Content-Type" : "application/json",
+      Authorization: `Bearer ${localStorageValue.token}`
+    } ,
+    body: JSON.stringify(data)
+     
+  })
+  if(response.ok){
+    location.reload()
+  }else{
+    console.log(response)
+    alert("Algo está errado!")
+   
+  }
 
+ 
+  return response
+}
+async function deletarDepartamento(data){
+  const localStorageValue = getUser()
+  const response = await fetch(`http://localhost:6278/departments/${data}`,{
+    method:`Delete`,
+    headers:{
+      "Content-Type" : "application/json",
+      Authorization: `Bearer ${localStorageValue.token}`
+    } 
+     
+  })
+  if(response.ok){
+    location.reload()
+  }else{
+    console.log(response)
+    alert("Algo está errado!")
+   
+  }
+
+ 
+  return response
+}
 export {
   login,
   createUser,
@@ -307,7 +357,12 @@ export {
   atualiza,
   checkColleagues,
   checkLoggedDepartmentInfo,
-  logout
+  logout,
+  checkDepartamentoEmpresa,
+  getAllDepartments,
+  getAllUsers,
+  createDepartmentApi,
+  deletarDepartamento
 } 
 
 

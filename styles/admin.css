@@ -105,3 +105,68 @@ li > p {
     display: flex;
     justify-content: center;
 }
+select{
+    text-align: center;
+    justify-content: center;
+}
+option{
+    text-align: center;
+    
+    
+}
+dialog{
+    
+    position: relative;
+    border: none;
+}
+.dialog_Container{
+    width: 506px;
+    height: 421px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+input{
+   height: 52px; 
+   width: 422px;
+   border: rgba(0, 0, 0, 0.3) solid 1px;
+   margin-left: 30px;
+
+}
+.closeModal{
+    position: absolute;
+    right: 20px;
+    top : 20px
+}
+.submitt{
+    height: 52px; 
+   width: 422px;
+   background-color: #4200FF;
+   margin-left: 30px;
+   color: white;
+}
+.modalSelect{
+    margin-left: 30px;
+    width: 422px;
+}
+.deleteDepartment_Container{
+    height: 342px;
+    width: 733px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.text_Delete{
+    width: 70%;
+    margin-top: 70px;
+    font-size: 28px;
+    line-height: 42px;
+}
+.confirm{
+    width: 70%;
+    height: 48px;
+    background-color:#4BA036 ;
+    color: white;
+    font-size: 18px;
+    margin-top: 38px;
+}
