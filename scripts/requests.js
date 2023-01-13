@@ -300,7 +300,7 @@ async function getAllUsers(){
 async function createDepartmentApi(data){
   const localStorageValue = getUser()
   const response = await fetch(`http://localhost:6278/departments`,{
-    method:`Post`,
+    method:`POST`,
     headers:{
       "Content-Type" : "application/json",
       Authorization: `Bearer ${localStorageValue.token}`
@@ -322,7 +322,7 @@ async function createDepartmentApi(data){
 async function deletarDepartamento(data){
   const localStorageValue = getUser()
   const response = await fetch(`http://localhost:6278/departments/${data}`,{
-    method:`Delete`,
+    method:`DELETE`,
     headers:{
       "Content-Type" : "application/json",
       Authorization: `Bearer ${localStorageValue.token}`
@@ -337,6 +337,56 @@ async function deletarDepartamento(data){
    
   }
 
+ 
+  return response
+}
+async function naosei(info,id){
+  const localStorageValue = getUser()
+  const response = await fetch(`http://localhost:6278/departments/${id}`,{
+    method:`PATCH`,
+    headers:{
+      "Content-Type" : "application/json",
+      Authorization: `Bearer ${localStorageValue.token}`
+    } ,
+    body: JSON.stringify(info)
+     
+  })
+  if(response.ok){
+    location.reload()
+  }else{
+    console.log(response)
+    alert("Algo está errado!")
+   
+  }
+ 
+  return response
+}
+async function getOutOfWork(){
+  const localStorageValue = getUser()
+  const response = await fetch(`http://localhost:6278/admin/out_of_work`,{
+    method:`GET`,
+    headers:{
+      "Content-Type" : "application/json",
+      Authorization: `Bearer ${localStorageValue.token}`
+    } 
+  })
+  const resposta = await response.json()
+  return resposta
+}
+async function contratar(info){
+  const localStorageValue = getUser()
+  const response = await fetch(`http://localhost:6278/departments/hire/`,{
+    method:`PATCH`,
+    headers:{
+      "Content-Type" : "application/json",
+      Authorization: `Bearer ${localStorageValue.token}`
+    } ,
+    body: JSON.stringify(info)
+     
+  })
+  if(!response.ok){
+    alert("Algo está errado!")
+  }
  
   return response
 }
@@ -362,7 +412,10 @@ export {
   getAllDepartments,
   getAllUsers,
   createDepartmentApi,
-  deletarDepartamento
+  deletarDepartamento,
+  naosei,
+  getOutOfWork,
+  contratar
 } 
 
 

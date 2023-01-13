@@ -1,4 +1,4 @@
-import {alreadyRegistered,logout,notLogged,getTodasEmpresas,checkDepartamentoEmpresa,getAllDepartments, getAllUsers,createDepartmentApi,deletarDepartamento} from "./requests.js"
+import {alreadyRegistered,logout,notLogged,getTodasEmpresas,checkDepartamentoEmpresa,getAllDepartments, getAllUsers,createDepartmentApi,deletarDepartamento,naosei,getOutOfWork,contratar} from "./requests.js"
 
 async function selectOptions (){
     const todasEmpresas = await getTodasEmpresas()
@@ -40,7 +40,7 @@ async function createLiDepartments(){
     const response = await checkDepartamentoEmpresa(result[0].id)
     const ul = document.querySelector(".departments_Container")
     response.forEach(element => {
-        
+        console.log(element)
         const li = document.createElement("li")
         ul.appendChild(li)
 
@@ -63,11 +63,21 @@ async function createLiDepartments(){
 
         const imgUm = document.createElement("img")
         imgUm.src = "../../pages/assets/olho.svg"
+        imgUm.classList.add("olho")
+        imgUm.dataset.name = element.name
+        imgUm.id = element.uuid
+        imgUm.dataset.id=element.companies.name
+        imgUm.dataset.class = element.description
+
         console.log(element)
         div.appendChild(imgUm)
 
         const imgDois = document.createElement("img")
         imgDois.src = "../../pages/assets/lapis preto.svg"
+        imgDois.id =element.uuid
+        imgDois.dataset.id= element.description
+        imgDois.classList.add("editDepart")
+
         div.appendChild(imgDois)
 
         const imgTres = document.createElement("img")
@@ -107,10 +117,18 @@ async function renderAllDepartments (){
 
         const imgUm = document.createElement("img")
         imgUm.src = "../../pages/assets/olho.svg"
+        imgUm.classList.add("olho")
+        imgUm.dataset.name = element.name
+        imgUm.id = element.uuid
+        imgUm.dataset.id=element.companies.name
+        imgUm.dataset.class = element.description
         div.appendChild(imgUm)
 
         const imgDois = document.createElement("img")
         imgDois.src = "../../pages/assets/lapis preto.svg"
+        imgDois.id =element.uuid
+        imgDois.classList.add("editDepart")
+        imgDois.dataset.id= element.description
         div.appendChild(imgDois)
 
         const imgTres = document.createElement("img")
@@ -137,10 +155,14 @@ async function renderEmpresaDepartments(){
             ul.innerHTML=""
             createLiDepartments()
             setTimeout(deleteDepartment, 500);
+            setTimeout(editDepartment,550)
+            setTimeout(contratarERemover, 600)
         }else {
             ul.innerHTML=""
             renderAllDepartments ()
             setTimeout(deleteDepartment, 500);
+            setTimeout(editDepartment,550)
+            setTimeout(contratarERemover, 600)
             
         }
         
@@ -296,7 +318,7 @@ function deleteDepartment(){
     const dialog = document.querySelector("dialog")
 
     const buttons = document.querySelectorAll(".lixeiraDepart")
-    console.log(buttons)
+    
 
     buttons.forEach(button => {
         button.addEventListener("click", async () =>{
@@ -332,6 +354,128 @@ function deleteDepartment(){
         })
     });
 }
+function editDepartment(){
+    const dialog = document.querySelector("dialog")
+    const buttons = document.querySelectorAll(".editDepart")
+    console.log(buttons)
+    const data = {}
+    
+    buttons.forEach(button => {
+        button.addEventListener("click", async () =>{
+            dialog.innerHTML = ""
+            console.log("alo")
+            const div = document.createElement("div")
+            div.classList.add("edit_Container")
+            dialog.appendChild(div)
+
+            const h2 = document.createElement("h2")
+            h2.classList.add("text_Edit")
+             h2.innerText = `Editar Departamento`
+
+             const close = document.createElement("img")
+             close.src ="./assets/Vector.svg"
+            close.classList.add("closeModal")
+
+             const textarea = document.createElement("textarea")
+             textarea.placeholder = button.dataset.id
+             const buttondois = document.createElement("button")
+             buttondois.innerText="Salvar alterações"
+             buttondois.classList.add("save")
+
+             buttondois.addEventListener("click",async (event) =>{
+                event.preventDefault()
+                
+                data.description = textarea.value
+                console.log(data)
+                console.log(button.id)
+                naosei(data,button.id)
+
+             } )
+             
+             div.append(h2,close,textarea ,buttondois)
+        
+
+            dialog.showModal()
+            closeModal()
+        })
+    });
+    
+
+}
+async function createOptions (){
+    const variavel = await getOutOfWork()  
+    const select = document.querySelector(".desempregados")
+
+        variavel.forEach(element => {
+                const option = document.createElement("option")
+                option.innerText =element.username
+                option.id = element.uuid
+                select.appendChild(option)
+                
+             });
+}
+async function contratarERemover(){
+    const dialog = document.querySelector("dialog")
+    const buttons = document.querySelectorAll(".olho")
+    const info = {}
+    buttons.forEach(button => {
+        button.addEventListener("click", async () =>{
+            dialog.innerHTML = ""
+            const div = document.createElement("div")
+            div.classList.add("contratar_Container")
+            dialog.appendChild(div)
+
+            const h2 = document.createElement("h2")
+            h2.classList.add("nomeDepart")
+             h2.innerText = button.dataset.name
+
+            const pDescription = document.createElement("p")
+            pDescription.innerText = button.dataset.class
+            pDescription.classList.add("pDescription")
+
+            const pName = document.createElement("p")
+            pName.innerText = button.dataset.id
+            pName.classList.add("pName")
+
+             const close = document.createElement("img")
+             close.src ="./assets/Vector.svg"
+            close.classList.add("closeModal")
+
+             const select = document.createElement("select")
+            select.classList.add("desempregados")
+
+             const buttondois = document.createElement("button")
+             buttondois.innerText="Contratar"
+             buttondois.classList.add("hire")
+
+
+             createOptions()
+
+             buttondois.addEventListener("click",async (event) =>{
+              
+               var id = select.options[select.selectedIndex].id
+               info.user_uuid = id
+               info.department_uuid = button.id
+               
+               
+                select.innerHTML=""
+                contratar(info)
+                setTimeout(createOptions, 400);
+                
+             } )
+             
+             div.append(h2,pDescription,pName,close,select ,buttondois)
+        
+
+            dialog.showModal()
+            closeModal()
+        })
+    });
+    
+
+}
+
+
 
 renderAllUsers()
 renderAllDepartments ()
@@ -343,3 +487,5 @@ alreadyRegistered()
 logout()
 selectOptions()
 setTimeout(deleteDepartment, 500);
+setTimeout(editDepartment,550)
+setTimeout(contratarERemover, 600)
