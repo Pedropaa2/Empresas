@@ -176,55 +176,61 @@ async function renderAllUsers() {
 
     const response = await getAllUsers()
     const responseDois = await getAllDepartments()
+    console.log(response)
+        console.log(responseDois)
     response.forEach(element => {
-        const li = document.createElement("li")
+        if(element.username != "ADMIN"){
+            const li = document.createElement("li")
 
-        ul.appendChild(li)
-
-        const name = document.createElement("p")
-        name.classList.add("nomeDepartamento")
-        name.innerText = element.username[0].toUpperCase() + element.username.slice(1)
-        li.appendChild(name)
-
-        const description = document.createElement("p")
-        description.innerText = element.professional_level
-        li.appendChild(description)
-
-
-
-        if (element.department_uuid != null) {
-
-            responseDois.forEach(elementdois => {
-                if (elementdois.uuid == element.department_uuid) {
-                    const companyName = document.createElement("p")
-                    companyName.innerText = elementdois.companies.name
-                    li.appendChild(companyName)
-                }
-            });
-        } else {
-            const companyName = document.createElement("p")
-            companyName.innerText = "Não foi contratado"
-            li.appendChild(companyName)
+            ul.appendChild(li)
+    
+            const name = document.createElement("p")
+            name.classList.add("nomeDepartamento")
+            name.innerText = element.username[0].toUpperCase() + element.username.slice(1)
+            li.appendChild(name)
+    
+            const description = document.createElement("p")
+            description.innerText = element.professional_level
+            li.appendChild(description)
+    
+    
+    
+            if (element.department_uuid != null) {
+    
+                responseDois.forEach(elementdois => {
+                    if (elementdois.uuid == element.department_uuid) {
+                        const companyName = document.createElement("p")
+                        companyName.innerText = elementdois.companies.name
+                        li.appendChild(companyName)
+                    }
+                });
+            } else {
+                const companyName = document.createElement("p")
+                companyName.innerText = "Não foi contratado"
+                li.appendChild(companyName)
+            }
+    
+            const div = document.createElement("div")
+            div.classList.add("edit")
+    
+            li.appendChild(div)
+    
+            const imgDois = document.createElement("img")
+            imgDois.src = "../../pages/assets/lapis preto.svg"
+            imgDois.dataset.id = element.uuid
+            imgDois.classList.add("editUser")
+            div.appendChild(imgDois)
+    
+            const imgTres = document.createElement("img")
+            imgTres.classList.add("deleteUser")
+            imgTres.dataset.id = element.uuid
+            imgTres.dataset.class = element.username
+            imgTres.src = "./assets/lixeira.svg "
+            div.appendChild(imgTres)
+    
         }
-
-        const div = document.createElement("div")
-        div.classList.add("edit")
-
-        li.appendChild(div)
-
-        const imgDois = document.createElement("img")
-        imgDois.src = "../../pages/assets/lapis preto.svg"
-        imgDois.dataset.id = element.uuid
-        imgDois.classList.add("editUser")
-        div.appendChild(imgDois)
-
-        const imgTres = document.createElement("img")
-        imgTres.classList.add("deleteUser")
-        imgTres.dataset.id = element.uuid
-        imgTres.dataset.class = element.username
-        imgTres.src = "./assets/lixeira.svg "
-        div.appendChild(imgTres)
-
+        
+       
 
 
 
