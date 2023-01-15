@@ -1,230 +1,345 @@
-main{
+main {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.h1AndCircle{
+
+.h1AndCircle {
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
-header{
+header {
     display: flex;
     justify-content: center;
-    height: 80px; 
+    height: 80px;
     align-items: center;
-    border-bottom:rgba(0, 0, 0, 0.1) solid 1px ;
+    border-bottom: var(--color-grey02) solid 1px;
 }
-.header_Container{
+
+.header_Container {
     display: flex;
     width: 80%;
     justify-content: space-between;
 }
-.circle{
+
+.circle {
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    background-color: rgba(66, 0, 255, 0.5) ;
+    background-color: var(--color-blue);
 }
-.logout{
+
+.logout {
     height: 48px;
     width: 142px;
-    background-color: white;
-    color: #4200FF;
-    border: #4200FF solid 1px;
+    background-color: var(--color-white);
+    color: var(--color-blue);
+    border: var(--color-blue) solid 1px;
 }
-.departamento_Container{
+
+.departamento_Container {
     width: 80%;
     display: flex;
     flex-direction: column;
-    margin-top: 104px ;
+    margin-top: 104px;
 }
-.select_Container{
+
+.select_Container {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.criar{
+
+.criar {
     height: 48px;
     width: 150px;
-    background-color: #4200FF;
-    color: white;
+    background-color: var(--color-blue);
+    color: var(--color-white);
     border: none;
 }
-select{
-    width: 282px; 
+
+select {
+    width: 282px;
     height: 32px;
     border-radius: 15px;
 
 }
-h2{
+
+h2 {
     font-size: 30px;
 
 }
-.ul_Container{
+
+.ul_Container {
     height: 385px;
     width: 100%;
-    background-color:#F8F8F8 ;
+    background-color: var(--color-grey03);
     overflow-y: auto;
-    
+
 }
-ul{
+
+ul {
     display: flex;
     flex-wrap: wrap;
 }
-li{
+
+li {
     height: 196px;
     width: 489px;
-    background-color: white;
+    background-color: var(--color-white);
     margin-top: 34px;
     margin-left: 56px;
     display: flex;
     flex-direction: column;
-    gap:10px ;
-    border-bottom: #4200FF solid 1px;
+    gap: 10px;
+    border-bottom: var(--color-blue) solid 1px;
 }
-li > p {
+
+li>p {
     margin-left: 29px;
 }
-.nomeDepartamento{
+
+.nomeDepartamento {
     margin-top: 18px;
     font-size: 20px;
 }
-.edit{
+
+.edit {
     display: flex;
     justify-content: center;
     margin-top: 30px;
     gap: 20px;
 }
-.user_Container{
+
+.user_Container {
     margin-top: 69px;
     width: 80%;
 }
-.h2_Container{
+
+.h2_Container {
     display: flex;
     justify-content: center;
 }
-select{
+
+select {
     text-align: center;
     justify-content: center;
 }
-option{
+
+option {
     text-align: center;
-    
-    
+
+
 }
-dialog{
-    
+
+dialog {
+
     position: relative;
     border: none;
 }
-.dialog_Container{
+
+.dialog_Container {
     width: 506px;
     height: 421px;
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
-input{
-   height: 52px; 
-   width: 422px;
-   border: rgba(0, 0, 0, 0.3) solid 1px;
-   margin-left: 30px;
+
+input {
+    height: 52px;
+    width: 422px;
+    border: rgba(0, 0, 0, 0.3) solid 1px;
+    margin-left: 30px;
 
 }
-.closeModal{
+
+.closeModal {
     position: absolute;
     right: 20px;
-    top : 20px
+    top: 20px
 }
-.submitt{
-    height: 52px; 
-   width: 422px;
-   background-color: #4200FF;
-   margin-left: 30px;
-   color: white;
+
+.submitt {
+    height: 52px;
+    width: 422px;
+    background-color: var(--color-blue);
+    margin-left: 30px;
+    color: var(--color-white);
 }
-.modalSelect{
+
+.modalSelect {
     margin-left: 30px;
     width: 422px;
 }
-.deleteDepartment_Container{
+
+.deleteDepartment_Container {
     height: 342px;
     width: 733px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.text_Delete{
+
+.text_Delete {
     width: 70%;
     margin-top: 70px;
     font-size: 28px;
     line-height: 42px;
 }
-.confirm{
+
+.confirm {
     width: 70%;
     height: 48px;
-    background-color:#4BA036 ;
-    color: white;
+    background-color: var(--color-green);
+    color: var(--color-white);
     font-size: 18px;
     margin-top: 38px;
 }
-.edit_Container{
+
+.edit_Container {
     width: 506px;
     height: 330px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.text_Edit{
+
+.text_Edit {
     font-size: 36px;
     line-height: 54px;
-    margin-top: 39px ;
+    margin-top: 39px;
 }
-textarea{
+
+textarea {
     height: 113px;
     width: 422px;
 }
-.save{
+
+.save {
     height: 48px;
     width: 422px;
-    background-color: #4200FF;
-    color: white;
-    margin-top: 26px ;
+    background-color: var(--color-blue);
+    color: var(--color-white);
+    margin-top: 26px;
 }
-.contratar_Container{
+
+.contratar_Container {
     height: 637px;
     width: 857px;
 }
-.nomeDepart{
+
+.nomeDepart {
     position: absolute;
     top: 39px;
     left: 43px;
 }
-.pDescription{
+
+.pDescription {
     position: absolute;
     top: 124px;
     left: 43px;
+    font-weight: 700;
+    font-size: 20px;
 }
-.pName{
+
+.pName {
     position: absolute;
     top: 165px;
     left: 43px;
 }
-.desempregados{
+
+.desempregados {
     position: absolute;
     top: 113px;
     height: 52px;
     width: 422px;
     right: 39px;
 }
-.hire{
+
+.hire {
     width: 157px;
     height: 48px;
-    background-color: #4BA036;
-    color: white;
+    background-color: var(--color-green);
+    color: var(--color-white);
     position: absolute;
     top: 179px;
     right: 39px;
+}
+
+.departmentUsers {
+    width: 814px;
+    height: 290px;
+    background-color: var(--color-grey03);
+    position: absolute;
+    top: 278px;
+    left: 43px;
+    overflow-y: auto;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.liDois {
+    min-width: 306px;
+    min-height: 196px;
+    max-width: 306px;
+    max-height: 196px;
+    background-color: var(--color-white);
+}
+
+.desligar {
+    width: 157px;
+    background-color: var(--color-white);
+    height: 48px;
+    color: var(--color-red);
+    border: var(--color-red) solid 1px;
+    margin-left: 74px;
+
+}
+
+.ulVazia {
+    justify-content: center;
+    align-items: center;
+}
+
+#company_uuid {
+    width: 422px;
+    height: 52px;
+    border-radius: 0;
+}
+
+.h2Create {
+    margin-left: 25px;
+    margin-top: 39px;
+}
+
+.editProfile {
+    margin-top: 39px;
+    margin-left: 50px;
+}
+
+.selectEdit {
+    width: 422px;
+    height: 52px;
+    border-radius: 0;
+    margin-left: 42px;
+}
+
+.submit {
+    height: 52px;
+    width: 422px;
+    background-color: var(--color-blue);
+    margin-left: 42px;
+    color: var(--color-white);
+}
+
+.desaparecer {
+    display: none;
+}
+
+.pDesligamento {
+    font-weight: 700;
+    margin-top: 18px;
 }

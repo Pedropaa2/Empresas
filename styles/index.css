@@ -1,68 +1,78 @@
-header{
-    border-bottom:rgba(0, 0, 0, 0.2) solid ;
+header {
+    border-bottom: var(--color-grey02) solid;
     margin-top: 25px;
 }
-.h1AndCircle{
+
+.h1AndCircle {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 10px;
 }
-.circle{
+
+.circle {
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    background-color: rgba(66, 0, 255, 0.5) ;
+    background-color: var(--color-blue);
 }
-.visible{
+
+.visible {
     display: flex;
     justify-content: space-between;
     margin-bottom: 25px;
     margin-left: 20px;
     margin-right: 20px;
 }
-nav{
+
+nav {
     display: flex;
     justify-content: center;
-    gap: 10px  ;
+    gap: 10px;
     margin-bottom: 21px;
-   
+
 }
-.login{
+
+.login {
     width: 40%;
     height: 48px;
-    background-color: white;
-    border: #4200FF solid 1px;
-    color: #4200FF;
+    background-color: var(--color-white);
+    border: var(--color-blue) solid 1px;
+    color: var(--color-blue);
     font-size: 18px;
     line-height: 21px;
 
 
 }
-.register{
+
+.register {
     width: 40%;
     height: 48px;
-    background-color: #4200FF;
-    border: #4200FF solid 1px;
-    color: white;
+    background-color: var(--color-blue);
+    border: var(--color-blue) solid 1px;
+    color: var(--color-white);
     font-size: 18px;
     line-height: 21px;
 }
-.fechado{
+
+.fechado {
     display: none;
 }
-.aberto{
+
+.aberto {
     display: flex;
 }
-section{
+
+section {
     display: flex;
     flex-direction: column;
     align-items: center;
     height: 332px;
-    
-    
+
+
 }
-.setor{
+
+.setor {
     margin-top: 25px;
     display: flex;
     width: 80%;
@@ -70,140 +80,164 @@ section{
     align-items: center;
     position: relative;
     height: 52px;
-    color: white;
-    background-color: #4200FF;
+    color: var(--color-white);
+    background-color: var(--color-blue);
     font-size: 18px;
 }
-select{
+
+select {
     position: absolute;
     right: 0;
 }
-ul{
+
+ul {
     display: flex;
     align-items: center;
     width: 80%;
     height: 281px;
     overflow-x: auto;
-    background-color: #F8F8F8;
-    
-    
+    background-color: var(--color-grey03);
+
+
 }
-li{
+
+li {
     min-width: 241px;
     height: 211px;
-    background-color: white;
+    background-color: var(--color-white);
     margin-left: 20px;
-    border-bottom: #4200FF solid 1px;
-  
-    
+    border-bottom: var(--color-blue) solid 1px;
+
+
 }
-li > div{
+
+li>div {
     display: flex;
     flex-direction: column;
-    gap:20px   ;
-    
+    gap: 20px;
+
 }
-.container{
+
+.container {
     margin-left: 15px;
 }
-h3{
+
+h3 {
     margin-left: 15px;
     margin-top: 15px;
     font-size: 20px;
     line-height: 24px;
     line-height: 100%;
 }
-.carga{
+
+.carga {
     margin-top: 70px;
 }
-.tag{
+
+.tag {
     width: 100px;
     height: 32px;
     border-radius: 255px;
-    background-color: white;
-    color: #4200FF;
-    border: #4200FF solid 1px;
+    background-color: var(--color-white);
+    color: var(--color-blue);
+    border: var(--color-blue) solid 1px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.retangulo{
+
+.retangulo {
     display: none;
 }
-select{
-    background-color: #4200FF;
-    color: white;
+
+select {
+    background-color: var(--color-blue);
+    color: var(--color-white);
     height: 30px;
     border: none;
 }
+
 @media(min-width:991px) {
-    .retangulo{
+    .retangulo {
         display: flex;
         width: 40%;
         background-image: url("../pages/assets/Rectangle\ 6.svg");
         background-repeat: no-repeat;
         background-size: cover;
-        
-    }
-   main{
-    display: flex;
-    margin-top: 50px;
-    gap: 60px;
-    justify-content: center;
-   }
-   section{
-    width: 40%;
-    height: 700px;
-   }
-   .setor{
-    width: 100%;
-    margin-top: 0;
-   }
-   ul{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
-    overflow-y: auto;
-    
-   }
-   li{
-    width: 90%;
-    margin: 0;
-    margin-top: 20px;
-    height: 141px;
-    min-height: 141px;
-    
-   }
-   li > h3 {
-    margin: 0;
-    margin-left: 25px;
-    margin-top: 13px;
-    margin-bottom: 13px;
 
-   }
-   .container{
-    margin: 0;
-    margin-left: 25px;
-   }
-   .carga{
-    margin: 0;
-   }
-   .abre{
-    display: none;
-   }
-   .fechado{
-    display: flex;
-   }
-   header{
-    display: flex;
-    justify-content: space-between;
-   }
-   .login{
-    width: 142px;
-   }
-   .register{
-    width: 142px;
-    margin-right: 20px;
-   }
+    }
+
+    main {
+        display: flex;
+        margin-top: 50px;
+        gap: 60px;
+        justify-content: center;
+    }
+
+    section {
+        width: 40%;
+        height: 700px;
+    }
+
+    .setor {
+        width: 100%;
+        margin-top: 0;
+    }
+
+    ul {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        overflow-y: auto;
+
+    }
+
+    li {
+        width: 90%;
+        margin: 0;
+        margin-top: 20px;
+        height: 141px;
+        min-height: 141px;
+
+    }
+
+    li>h3 {
+        margin: 0;
+        margin-left: 25px;
+        margin-top: 13px;
+        margin-bottom: 13px;
+
+    }
+
+    .container {
+        margin: 0;
+        margin-left: 25px;
+    }
+
+    .carga {
+        margin: 0;
+    }
+
+    .abre {
+        display: none;
+    }
+
+    .fechado {
+        display: flex;
+    }
+
+    header {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .login {
+        width: 142px;
+    }
+
+    .register {
+        width: 142px;
+        margin-right: 20px;
+    }
 }
